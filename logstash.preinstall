@@ -1,0 +1,4 @@
+#!/bin/bash
+
+useradd -r -m -d /usr/share/logstash -s /bin/false logstash || exit 0
+
