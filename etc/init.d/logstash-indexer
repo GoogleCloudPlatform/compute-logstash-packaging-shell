@@ -44,17 +44,7 @@ fi
 LS_USER=logstash
 LS_GROUP=logstash
 
-# The first existing directory is used for JAVA_HOME (if JAVA_HOME is not defined in $DEFAULT)
-JDK_DIRS="/usr/lib/jvm/java-7-oracle /usr/lib/jvm/java-6-sun /usr/lib/jvm/java-7-openjdk /usr/lib/jvm/java-6-openjdk"
-
-# Look for the right JVM to use
-for jdir in $JDK_DIRS; do
-   if [ -r "$jdir/bin/java" -a -z "${JAVA_HOME}" ]; then
-      JAVA_HOME="$jdir"
-   fi
-done
-
-export JAVA_HOME
+export JAVA_HOME=/usr/lib/jvm/default-java
 
 # Directory where the logstash all in one jar lives
 LS_HOME=/usr/share/logstash
@@ -69,7 +59,7 @@ LOG_DIR=/var/log/logstash
 CONF_DIR=/etc/logstash
 
 # logstash-indexer configuration file
-CONF_FILE=$CONF_DIR/indexer.cfg
+CONF_FILE=$CONF_DIR/indexer.conf
 
 # logstash-indexer log file
 LOG_FILE=$LOG_DIR/indexer.log

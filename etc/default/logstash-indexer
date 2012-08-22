@@ -12,4 +12,4 @@ LOG_DIR=/var/log/logstash
 CONF_DIR=/etc/logstash
 
 # logstash configuration file
-CONF_FILE=/etc/logstash/indexer.cfg
+CONF_FILE=/etc/logstash/indexer.conf
