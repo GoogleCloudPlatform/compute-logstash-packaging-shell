@@ -3,7 +3,7 @@ LS_USER=logstash
 LS_GROUP=logstash
 
 # Set heap settings here for Java, and other things like garbage collection
-LS_JAVA_OPTS=
+LS_JAVA_OPTS="-Xms512m -Xmx512m"
 
 # logstash log directory
 LOG_DIR=/var/log/logstash
