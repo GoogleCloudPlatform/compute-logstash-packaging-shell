@@ -1,3 +1,5 @@
+Running logstash-packaging/package.sh will download logstash 1.1.7, and
+package it into a .deb file. Alternatively, you can do it manually:
 
 1) clone this repository
 
@@ -5,14 +7,10 @@
 
     gem install fpm
 
-3) run logstash-packaging/package.sh
-
-or
-
 3) download the all inclusive logstash jar
 
     cd logstash-packaging
-    wget http://semicomplete.com/files/logstash/logstash-1.1.7-monolithic.jar -O usr/share/logstash/logstash.jar
+    wget http://logstash.objects.dreamhost.com/release/logstash-1.1.7-flatjar.jar -O usr/share/logstash/logstash.jar
 
 4) run the following command:
 
