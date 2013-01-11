@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# /etc/init.d/logstash-indexer -- startup script for LogStash indexer.
+# /etc/init.d/logstash -- startup script for LogStash.
 #
 # Fork of elasticsearch init script for logstash by Joe McDonagh <jmcdonagh@thesilentpenguin.com>
 # Written by Miquel van Smoorenburg <miquels@cistron.nl>.
@@ -9,22 +9,23 @@
 # Modified for Tomcat6 by Thierry Carrez <thierry.carrez@ubuntu.com>.
 # Additional improvements by Jason Brittain <jason.brittain@mulesoft.com>.
 # Modified by Nicolas Huray for logstash-indexer <nicolas.huray@gmail.com>.
+# Modified by Jon Skarpeteig <jon.skarpeteig@gmail.com>.
 #
 ### BEGIN INIT INFO
-# Provides:          logstash-indexer
+# Provides:          logstash
 # Required-Start:    $all
 # Required-Stop:     $all
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: Starts logstash-indexer
-# Description:       Starts logstash-indexer using start-stop-daemon
+# Short-Description: Starts logstash
+# Description:       Starts logstash using start-stop-daemon
 ### END INIT INFO
 
 set -e
 
 PATH=/bin:/usr/bin:/sbin:/usr/sbin
-NAME=logstash-indexer
-DESC="Logstash Indexer Agent"
+NAME=logstash
+DESC="Logstash Daemon"
 DEFAULT=/etc/default/$NAME
 
 if [ `id -u` -ne 0 ]; then
@@ -40,9 +41,9 @@ fi
 
 # The following variables can be overwritten in $DEFAULT
 
-# Run logstash-indexer as this user ID and group ID
+# Run logstash as this user ID and group ID
 LS_USER=logstash
-LS_GROUP=logstash
+LS_GROUP=adm
 
 export JAVA_HOME=/usr/lib/jvm/default-java
 
@@ -52,17 +53,17 @@ LS_HOME=/usr/share/logstash
 # Additional Java OPTS
 #LS_JAVA_OPTS=
 
-# logstash-indexer log directory
-LOG_DIR=/var/log/logstash
+# logstash log directory
+LOG_DIR=/var/log
 
-# logstash-indexer configuration directory
-CONF_DIR=/etc/logstash
+# logstash configuration directory
+CONF_DIR=/etc
 
-# logstash-indexer configuration file
-CONF_FILE=$CONF_DIR/indexer.conf
+# logstash configuration file
+CONF_FILE=$CONF_DIR/logstash.conf
 
-# logstash-indexer log file
-LOG_FILE=$LOG_DIR/indexer.log
+# logstash log file
+LOG_FILE=$LOG_DIR/logstash.log
 
 # End of variables that can be overwritten in $DEFAULT
 

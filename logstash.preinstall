@@ -1,4 +1,4 @@
 #!/bin/bash
-
-useradd -r -m -d /usr/share/logstash -s /bin/false logstash || exit 0
+# Create system user with read rights to /var/log files and no shell access
+useradd -g adm -r -m -d /usr/share/logstash -s /bin/false logstash || exit 0
 

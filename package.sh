@@ -1,6 +1,7 @@
 #!/bin/bash
-VERSION=1.1.7
+VERSION=1.1.8
+cd ..
 git clone git://github.com/Yuav/logstash-packaging.git
-#cd logstash-packaging
-wget http://logstash.objects.dreamhost.com/release/logstash-${VERSION}-flatjar.jar -O logstash-packaging/usr/share/logstash/logstash.jar
-fpm -n logstash -v $VERSION -d default-jre -a all -C logstash-packaging -m "<lesspublic@gmail.com>" --pre-install logstash-packaging/logstash.preinstall  --post-install logstash-packaging/logstash.postinstall --description "Logstash Open Source Log Management" --url 'http://www.logstash.net/' -t deb -s dir etc usr var
+wget http://logstash.objects.dreamhost.com/release/logstash-${VERSION}-monolithic.jar -O logstash-packaging/usr/share/logstash/logstash.jar
+#wget https://logstash.objects.dreamhost.com/release/logstash-1.1.8-flatjar.jar
+fpm -n logstash -v $VERSION -d default-jre -a all -C logstash-packaging -m "<lesspublic@gmail.com>" --pre-install logstash-packaging/logstash.preinstall --description "Logstash Open Source Log Management" --url 'http://www.logstash.net/' -t deb -s dir etc usr var
