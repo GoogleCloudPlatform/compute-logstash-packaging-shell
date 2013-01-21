@@ -1,4 +1,5 @@
 # Run logstash as this user ID and group ID
+# Group adm grants read access to syslog
 LS_USER=logstash
 LS_GROUP=adm
 
@@ -8,8 +9,5 @@ LS_JAVA_OPTS="-Xms512m -Xmx512m"
 # logstash log directory
 LOG_DIR=/var/log
 
-# logstash configuration directory
-CONF_DIR=/etc
-
-# logstash configuration file
-CONF_FILE=/etc/logstash.conf
+# logstash configuration (supports file, directory and glob)
+CONF=/etc/logstash

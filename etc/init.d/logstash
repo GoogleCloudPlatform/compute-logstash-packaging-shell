@@ -56,11 +56,8 @@ LS_HOME=/usr/share/logstash
 # logstash log directory
 LOG_DIR=/var/log
 
-# logstash configuration directory
-CONF_DIR=/etc
-
-# logstash configuration file
-CONF_FILE=$CONF_DIR/logstash.conf
+# logstash configuration (supports file, directory and glob)
+CONF=/etc/logstash
 
 # logstash log file
 LOG_FILE=$LOG_DIR/logstash.log
@@ -75,7 +72,7 @@ fi
 # Define other required variables
 PID_FILE=/var/run/$NAME.pid
 DAEMON=$LS_HOME/logstash.jar
-DAEMON_OPTS="agent -f ${CONF_FILE} --log ${LOG_FILE}"
+DAEMON_OPTS="agent -f ${CONF} --log ${LOG_FILE}"
 
 export LS_MIN_MEM LS_MAX_MEM
 
