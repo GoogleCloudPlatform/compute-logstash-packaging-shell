@@ -103,7 +103,7 @@ case "$1" in
          ulimit -n 65535
 
          # Start Daemon
-         start-stop-daemon --start -b --user "$LS_USER" -c "$LS_USER":"$LS_USER" -d "$LS_HOME" --pidfile "$PID_FILE" --make-pidfile --exec "$JAVA_HOME/bin/java" -- $LS_JAVA_OPTS -jar $DAEMON $DAEMON_OPTS
+         start-stop-daemon --start -b --user "$LS_USER" -c "$LS_USER":"$LS_GROUP" -d "$LS_HOME" --pidfile "$PID_FILE" --make-pidfile --exec "$JAVA_HOME/bin/java" -- $LS_JAVA_OPTS -jar $DAEMON $DAEMON_OPTS
 
          sleep 1
 
