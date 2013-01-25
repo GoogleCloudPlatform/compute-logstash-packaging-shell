@@ -14,5 +14,5 @@ file. Alternatively, you can do it manually:
 
 4) run the following command:
 
-    fpm -n logstash -v 1.1.9 -d default-jre -a all -C logstash-packaging -m "<lesspublic@gmail.com>" --pre-install logstash-packaging/logstash.preinstall --description "Logstash Open Source Log Management" --url 'http://www.logstash.net/' -t deb -s dir etc usr var
+    fpm -n logstash -v 1.1.9 -d default-jre -a all -C logstash-packaging -m "<lesspublic@gmail.com>" --pre-install logstash-packaging/logstash.preinstall --description "Logstash Open Source Log Management" --url 'http://www.logstash.net/' -t deb --config-files etc/logstash/syslog.conf --config-files etc/default/logstash -s dir etc usr var
 
