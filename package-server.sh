@@ -11,4 +11,4 @@ if [ ! -f "$JAR_FILE" ]; then
 fi
 
 #wget https://logstash.objects.dreamhost.com/release/logstash-${VERSION}-flatjar.jar
-fpm -n logstash-server -v $VERSION -a all -C $CURRENT_DIR -m "<lesspublic@gmail.com>" --pre-install $CURRENT_DIR/logstash.preinstall --post-install $CURRENT_DIR/logstash.postinstall --description "Logstash Open Source Log Management" --url 'http://www.logstash.net/' -t deb --config-files etc/logstash/syslog.conf --config-files etc/default/logstash -s dir etc/default/logstash etc/init.d etc/logstash/syslog.conf usr/share/logstash/logstash.jar var
+fpm -n logstash-server -v $VERSION -a all -C $CURRENT_DIR -m "<lesspublic@gmail.com>" --pre-install $CURRENT_DIR/logstash.preinstall --post-install $CURRENT_DIR/logstash.postinstall --description "Logstash Open Source Log Management" --url 'http://www.logstash.net/' -t deb --config-files etc/logstash/syslog-server.conf --config-files etc/default/logstash -s dir etc/default/logstash etc/init.d etc/logstash/syslog-server.conf usr/share/logstash/logstash.jar var
