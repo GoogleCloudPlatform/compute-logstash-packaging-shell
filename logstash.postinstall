@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Run logstash as this user ID and group ID
+LS_USER=logstash
+LS_GROUP=adm
+
+set -e
+
+PATH=/bin:/usr/bin:/sbin:/usr/sbin
+NAME=logstash
+DEFAULT=/etc/default/$NAME
+
+# logstash configuration (supports file, directory and glob)
+CONF=/etc/logstash
+
+# Directory where the logstash all in one jar lives
+LS_HOME=/usr/share/logstash
+
+# overwrite settings from default file
+if [ -f "$DEFAULT" ]; then
+   . "$DEFAULT"
+fi
+
+
+chown -R "$LS_USER":"$LS_GROUP" "$CONF"
+chown -R "$LS_USER":"$LS_GROUP" "$LOG_DIR"
