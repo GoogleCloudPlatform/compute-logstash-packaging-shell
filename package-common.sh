@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION=1.1.10
+VERSION=1.1.13
 CURRENT_DIR=$PWD
 MAINTAINER="<lesspublic@gmail.com>"
 JAR_FILE=$CURRENT_DIR/usr/share/logstash/logstash.jar
@@ -16,8 +16,6 @@ OPTIONS:
    -f      Force package creation even if file exists
 EOF
 }
-
-cd ..
 
 while getopts "f" OPTION
 do

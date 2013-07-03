@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION=1.1.10
+VERSION=1.1.13
 CURRENT_DIR=$PWD
 MAINTAINER="<lesspublic@gmail.com>"
 FORCE=
