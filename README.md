@@ -18,3 +18,5 @@ running locally. In case any or both are remote, update the following file:
 
 Note that shipper and server packages conflict and cannot be installed on
 the same host.
+
+Flags to the scripts can be seen by running with with option "-?".
