@@ -16,8 +16,6 @@ OPTIONS:
 EOF
 }
 
-cd ..
-
 while getopts "f" OPTION
 do
   case $OPTION in
