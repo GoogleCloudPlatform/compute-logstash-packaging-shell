@@ -22,5 +22,8 @@ if [ -f "$DEFAULT" ]; then
 fi
 
 
-chown -R "$LS_USER":"$LS_GROUP" "$CONF"
-chown -R "$LS_USER":"$LS_GROUP" "$LOG_DIR"
+if [ -d "$CONF" ]; then
+  chown -R "$LS_USER":"$LS_GROUP" "$CONF"
+fi
+
+chown -R "$LS_USER":"$LS_GROUP" "$LS_HOME"
