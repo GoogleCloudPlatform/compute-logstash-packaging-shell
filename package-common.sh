@@ -2,7 +2,7 @@
 VERSION=1.1.13
 CURRENT_DIR=$PWD
 MAINTAINER="<lesspublic@gmail.com>"
-JAR_FILE=$CURRENT_DIR/usr/share/logstash/logstash.jar
+JAR_FILE=usr/share/logstash/logstash.jar
 FORCE=
 
 usage()
@@ -32,8 +32,8 @@ done
 
 cd ..
 
-if [ ! -f "$JAR_FILE" ]; then
-  wget http://logstash.objects.dreamhost.com/release/logstash-${VERSION}-monolithic.jar -O $JAR_FILE  
+if [ ! -f "$CURRENT_DIR/$JAR_FILE" ]; then
+  wget http://logstash.objects.dreamhost.com/release/logstash-${VERSION}-monolithic.jar -O $CURRENT_DIR/$JAR_FILE
 fi
 
 fpm $FORCE -n logstash-common -v $VERSION -a all -C $CURRENT_DIR -m $MAINTAINER --pre-install $CURRENT_DIR/logstash.preinstall --post-install $CURRENT_DIR/logstash.postinstall --description "Logstash Open Source Log Management - Common" --url 'http://www.logstash.net/' -t deb --config-files etc/default/logstash -s dir etc/default/logstash etc/init.d $JAR_FILE var
