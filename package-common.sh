@@ -1,6 +1,6 @@
 #!/bin/bash
 VERSION=1.1.13
-CURRENT_DIR=$PWD
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 MAINTAINER="<lesspublic@gmail.com>"
 JAR_FILE=usr/share/logstash/logstash.jar
 FORCE=
@@ -29,8 +29,6 @@ do
       ;;
   esac
 done
-
-cd ..
 
 if [ ! -f "$CURRENT_DIR/$JAR_FILE" ]; then
   wget http://logstash.objects.dreamhost.com/release/logstash-${VERSION}-monolithic.jar -O $CURRENT_DIR/$JAR_FILE

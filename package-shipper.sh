@@ -1,6 +1,6 @@
 #!/bin/bash
 VERSION=1.1.13
-CURRENT_DIR=$PWD
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 FORCE=
 
 usage()
@@ -27,7 +27,5 @@ do
       ;;
   esac
 done
-
-cd ..
 
 fpm $FORCE -n logstash-shipper -v $VERSION -a all -C $CURRENT_DIR -m "<lesspublic@gmail.com>" --depends logstash-common --conflicts logstash-server --pre-install $CURRENT_DIR/logstash.preinstall --post-install $CURRENT_DIR/logstash.postinstall  --description "Logstash Open Source Log Management - Shipper" --url 'http://www.logstash.net/' -t deb --config-files etc/logstash/syslog-shipper.conf -s dir etc/logstash/syslog-shipper.conf
