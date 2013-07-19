@@ -1,6 +1,7 @@
 #!/bin/bash
 VERSION=1.1.13
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+MAINTAINER="<lesspublic@gmail.com>"
 FORCE=
 
 usage()
@@ -33,7 +34,7 @@ fpm \
   -v $VERSION \
   -a all \
   -C $CURRENT_DIR \
-  -m "<lesspublic@gmail.com>" \
+  -m $MAINTAINER \
   --depends logstash-common \
   --conflicts logstash-server \
   --pre-install $CURRENT_DIR/logstash.preinstall \
